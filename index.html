@@ -1,0 +1,674 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Warum träumen wir? Entdecke die Wissenschaft hinter unseren Träumen, Schlafphasen, Erinnerungen und Gefühlen.">
+<title>DreamLab – Warum träumen wir?</title>
+
+<style>
+:root {
+  --bg: #080d25;
+  --card: #141e43;
+  --blue: #69c8ff;
+  --purple: #b69aff;
+  --text: #f4f5ff;
+  --muted: #bdc7ee;
+  --border: rgba(184,190,255,.2);
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: var(--text);
+  line-height: 1.8;
+  background:
+    radial-gradient(ellipse at top left, #1b2860, transparent 45%),
+    radial-gradient(ellipse at top right, #351b68, transparent 40%),
+    var(--bg);
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(8,13,37,.92);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid var(--border);
+}
+
+nav {
+  max-width: 1100px;
+  margin: auto;
+  padding: 16px 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.logo {
+  color: white;
+  font-weight: bold;
+  font-size: 1.4rem;
+  text-decoration: none;
+}
+
+.logo span { color: var(--purple); }
+
+nav a {
+  color: var(--muted);
+  text-decoration: none;
+  margin-left: 12px;
+}
+
+nav a:hover { color: var(--blue); }
+
+.hero {
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  padding: 80px 8%;
+  border-bottom: 1px solid var(--border);
+  background:
+    radial-gradient(circle at 78% 35%, #7450d955, transparent 25%),
+    radial-gradient(circle at 85% 70%, #258cda44, transparent 28%);
+}
+
+.hero-content {
+  max-width: 850px;
+}
+
+.eyebrow {
+  color: var(--blue);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: .8rem;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: clamp(3rem, 8vw, 6rem);
+  line-height: 1.08;
+  margin: 20px 0;
+  letter-spacing: -3px;
+}
+
+.gradient {
+  background: linear-gradient(90deg, var(--blue), var(--purple), #edc4ff);
+  color: transparent;
+  background-clip: text;
+}
+
+.hero p {
+  font-size: 1.15rem;
+  color: var(--muted);
+  max-width: 700px;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 22px;
+  border-radius: 30px;
+  color: white;
+  text-decoration: none;
+  background: linear-gradient(100deg, #4169e1, #8657d5);
+  transition: transform .2s;
+}
+
+.button:hover { transform: translateY(-3px); }
+
+main {
+  max-width: 1100px;
+  padding: 50px 22px;
+  margin: auto;
+}
+
+.intro {
+  display: grid;
+  grid-template-columns: 1.3fr .7fr;
+  gap: 22px;
+  margin-bottom: 55px;
+}
+
+.panel, .card, .sources {
+  background: linear-gradient(145deg, #18234b, #101735);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 25px;
+}
+
+.panel p, .card p, .sources li {
+  color: var(--muted);
+}
+
+.big-word {
+  font-size: 2.3rem;
+  color: var(--blue);
+  font-weight: bold;
+}
+
+.section-heading {
+  margin: 55px 0 25px;
+  scroll-margin-top: 100px;
+}
+
+.section-heading h2 {
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+
+.section-heading p { color: var(--muted); }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.card {
+  transition: transform .2s, border-color .2s;
+  scroll-margin-top: 100px;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--purple);
+}
+
+.number {
+  color: var(--blue);
+  font-size: .8rem;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.card h3 {
+  color: white;
+  font-size: 1.35rem;
+  line-height: 1.4;
+}
+
+.term {
+  color: #d2c1ff;
+  font-weight: bold;
+  border-bottom: 1px dotted var(--purple);
+}
+
+.note {
+  border-left: 4px solid var(--purple);
+  background: rgba(182,154,255,.1);
+  padding: 18px;
+  margin: 30px 0;
+  border-radius: 0 12px 12px 0;
+  color: var(--muted);
+}
+
+.sources a {
+  color: var(--blue);
+  overflow-wrap: anywhere;
+}
+
+.sources li { margin-bottom: 15px; }
+
+footer {
+  text-align: center;
+  padding: 30px 20px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+}
+
+.top {
+  display: inline-block;
+  margin-top: 20px;
+  color: var(--blue);
+}
+
+@media (max-width: 700px) {
+  .intro, .grid { grid-template-columns: 1fr; }
+
+  nav { justify-content: center; }
+
+  nav a { margin: 0 5px; }
+
+  .hero { padding: 60px 22px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .card, .button { transition: none; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <nav>
+    <a class="logo" href="#start">DREAM<span>LAB</span> ✦</a>
+    <div>
+      <a href="#grundlagen">Grundlagen</a>
+      <a href="#warum">Warum?</a>
+      <a href="#besonderes">Besonderes</a>
+      <a href="#quellen">Quellen</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero" id="start">
+  <div class="hero-content">
+    <div class="eyebrow">Schlaf · Gehirn · Wissenschaft</div>
+    <h1>Warum träumen <span class="gradient">wir?</span></h1>
+    <p>
+      Nachts entstehen Geschichten, Bilder und Gefühle, die sich
+      manchmal echter anfühlen als die Wirklichkeit. Doch warum
+      träumt unser Gehirn überhaupt? Entdecke die faszinierende
+      Welt der Träume und die wissenschaftlichen Erklärungen.
+    </p>
+    <a class="button" href="#grundlagen">Die Welt der Träume entdecken ↓</a>
+  </div>
+</section>
+
+<main>
+
+<section class="intro">
+  <div class="panel">
+    <h2>Eine Reise ins nächtliche Gehirn 🌙</h2>
+    <p>
+      Träume sind Erlebnisse, die während des Schlafs auftreten.
+      Wir können Bilder sehen, Geräusche hören, Gedanken haben
+      und Gefühle erleben. Oft verbindet das Gehirn echte
+      Erinnerungen mit ungewöhnlichen Vorstellungen.
+    </p>
+    <p>
+      Forschende untersuchen seit vielen Jahren, warum Menschen
+      träumen. Es gibt mehrere Theorien, aber noch keine einzelne
+      Erklärung, die alle Träume vollständig erklären kann.
+    </p>
+  </div>
+
+  <div class="panel">
+    <div class="eyebrow">Das Wichtigste</div>
+    <div class="big-word">Offene Frage</div>
+    <p>
+      Dass Schlaf für Gesundheit und Gedächtnis wichtig ist,
+      gilt als gut belegt. Welche genaue Funktion das bewusste
+      Traumerleben hat, wird weiterhin erforscht.
+    </p>
+  </div>
+</section>
+
+<section id="grundlagen">
+  <div class="section-heading">
+    <h2>Die Grundlagen des Träumens</h2>
+    <p>Was während der Nacht in unserem Gehirn passiert.</p>
+  </div>
+
+  <div class="grid">
+
+    <article class="card">
+      <div class="number">01 / DEFINITION</div>
+      <h3>Was ist ein Traum?</h3>
+      <p>
+        Ein <span class="term">Traum</span> ist eine Folge von
+        Erlebnissen, Gedanken, Bildern oder Gefühlen während
+        des Schlafs. Träume können realistisch wirken oder
+        völlig unmögliche Situationen zeigen.
+      </p>
+      <p>
+        Das Gehirn kann Menschen, Orte und Erinnerungen miteinander
+        kombinieren. Nicht jeder Traum bleibt nach dem Aufwachen
+        im Gedächtnis.
+      </p>
+    </article>
+
+    <article class="card">
+      <div class="number">02 / SCHLAFPHASEN</div>
+      <h3>Die verschiedenen Schlafphasen</h3>
+      <p>
+        Unser Schlaf besteht aus mehreren Phasen, die sich
+        während der Nacht wiederholen. Man unterscheidet zwischen
+        REM-Schlaf und Non-REM-Schlaf.
+      </p>
+      <p>
+        Ein <span class="term">Schlafzyklus</span> ist eine Abfolge
+        dieser Schlafphasen. Ein Zyklus dauert häufig ungefähr
+        80 bis 100 Minuten, kann aber variieren.
+      </p>
+    </article>
+
+    <article class="card">
+      <div class="number">03 / REM-SCHLAF</div>
+      <h3>Warum ist der REM-Schlaf besonders?</h3>
+      <p>
+        REM steht für „Rapid Eye Movement“, also schnelle
+        Augenbewegungen. In dieser Schlafphase ist das Gehirn
+        besonders aktiv und lebhafte Träume kommen häufig vor.
+      </p>
+      <p>
+        Die meisten Muskeln sind vorübergehend stark gehemmt.
+        Dadurch führen wir unsere Traumerlebnisse normalerweise
+        nicht mit großen Bewegungen aus.
+      </p>
+    </article>
+
+    <article class="card">
+      <div class="number">04 / NON-REM-SCHLAF</div>
+      <h3>Träume außerhalb des REM-Schlafs</h3>
+      <p>
+        Der <span class="term">Non-REM-Schlaf</span> umfasst
+        leichteren Schlaf und Tiefschlaf. Im Tiefschlaf zeigt
+        das Gehirn besonders langsame elektrische Aktivität.
+      </p>
+      <p>
+        Auch während dieser Phasen können Menschen träumen.
+        Die Erlebnisse sind im Durchschnitt häufig weniger
+        bildhaft, aber es gibt viele individuelle Unterschiede.
+      </p>
+    </article>
+
+    <article class="card">
+      <div class="number">05 / GEHIRNAKTIVITÄT</div>
+      <h3>Was macht unser Gehirn nachts?</h3>
+      <p>
+        Während des Schlafs bleibt das Gehirn aktiv. Verschiedene
+        Bereiche verarbeiten weiterhin Informationen, Erinnerungen
+        und Gefühle.
+      </p>
+      <p>
+        Ein <span class="term">Gehirnnetzwerk</span> ist eine Gruppe
+        von Hirnregionen, die miteinander kommunizieren. Forschende
+        untersuchen, wie diese Netzwerke Traumerlebnisse ermöglichen.
+      </p>
+    </article>
+
+    <article class="card">
+      <div class="number">06 / ERINNERUNGEN</div>
+      <h3>Warum tauchen Tageserlebnisse auf?</h3>
+      <p>
+        Manchmal träumen wir von einem Gespräch, einem Ort oder
+        einer Person, die uns tagsüber beschäftigt hat. Das Gehirn
+        kann solche Eindrücke mit älteren Erinnerungen vermischen.
+      </p>
+      <p>
+        <span class="term">Gedächtniskonsolidierung</span> bedeutet,
+        dass Erinnerungen stabilisiert und in vorhandenes Wissen
+        eingebunden werden. Schlaf unterstützt diesen Prozess,
+        aber die genaue Rolle von Träumen ist noch unklar.
+      </p>
+    </article>
+
+  </div>
+</section>
+
+<section id="warum">
+  <div class="section-heading">
+    <h2>Warum träumen wir möglicherweise?</h2>
+    <p>Diese Erklärungen sind wissenschaftliche Hypothesen und nicht alle abschließend bewiesen.</p>
+  </div>
+
+  <div class="grid">
+
+    <article class="card">
+      <div class="number">07 / GEFÜHLE</div>
+      <h3>Emotionen verarbeiten</h3>
+      <p>
+        Eine Theorie besagt, dass Träume dabei helfen könnten,
+        Gefühle und belastende Erlebnisse zu verarbeiten.
+        Deshalb können Sorgen oder schöne Erinnerungen in Träumen
+        wieder auftauchen.
+      </p>
+      <p>
+        <span class="term">Emotionale Verarbeitung</span> bedeutet,
+        dass das Gehirn Gefühle einordnet und mit Erfahrungen
+        verbindet. Die genaue Funktion des Träumens dabei wird
+        weiterhin erforscht.
+      </p>
+    </article>
+
+    <article class="card">
+      <div class="number">08 / LERNEN</div>
+      <h3>Erinnerungen ordnen</h3>
+      <p>
+        Schlaf ist wichtig für das Lernen und Erinnern.
+        Deshalb vermuten Forschende, dass Trauminhalte mit der
+        Verarbeitung neuer Informationen zusammenhängen könnten.
+      </p>
+      <p>
+        Das bedeutet nicht, dass jeder Traum eine bestimmte
+        Lektion enthält. Die positive Wirkung des Schlafs auf
+        das Gedächtnis ist besser belegt als eine besondere
+        Funktion der Träume selbst.
+      </p>
+    </article>
+
+    <article class="card">
+      <div class="number">09 / KREATIVITÄT</div>
+      <h3>Fördern Träume unsere Kreativität?</h3>
+      <p>
+        Träume kombinieren manchmal Ideen, Orte und Personen,
+        die im Alltag nicht zusammengehören. Dadurch können
+        ungewöhnliche Gedankenverbindungen entstehen.
+      </p>
+      <p>
+        Forschende untersuchen, ob Schlaf die Kreativität
+        unterstützen kann. Träume sind allerdings kein
+        garantierter Kreativitäts-Booster.
+      </p>
+    </article>
+
+    <article class="card">
+      <div class="number">10 / GEFAHREN</div>
+      <h3>Gefahren im Traum durchspielen</h3>
+      <p>
+        Manche Träume stellen bedrohliche Situationen dar.
+        Eine Hypothese besagt, dass das Gehirn mögliche Reaktionen
+        gedanklich durchspielen könnte.
+      </p>
+      <p>
+        Die <span class="term">Bedrohungssimulationstheorie</span>
+        ist eine Erklärung dafür, warum manche Träume von Gefahren
+        handeln. Sie erklärt jedoch nicht alle Träume und ist
+        wissenschaftlich nicht abschließend bestätigt.
+      </p>
+    </article>
+
+    <article class="card">
+      <div class="number">11 / GEHIRNSIGNALE</div>
+      <h3>Entstehen Träume teilweise zufällig?</h3>
+      <p>
+        Eine weitere Theorie besagt, dass Träume teilweise aus
+        spontanen Signalen des Gehirns während des Schlafs
+        entstehen. Das Gehirn könnte diese Signale zu einer
+        zusammenhängenden Geschichte verbinden.
+      </p>
+      <p>
+        Das <span class="term">Aktivierungs-Synthese-Modell</span>
+        beschreibt diese Idee. „Synthese“ bedeutet hier, dass
+        unterschiedliche Signale zu einem Gesamterlebnis
+        zusammengesetzt werden.
+      </p>
+    </article>
+
+    <article class="card">
+      <div class="number">12 / TRAUMDEUTUNG</div>
+      <h3>Sagen Träume die Zukunft voraus?</h3>
+      <p>
+        Es gibt keine überzeugenden wissenschaftlichen Belege
+        dafür, dass Träume die Zukunft zuverlässig vorhersagen.
+        Manchmal erkennen wir im Nachhinein Ähnlichkeiten
+        zwischen einem Traum und einem späteren Ereignis.
+      </p>
+      <p>
+        Ein Traum von einer bestimmten Person hat keine
+        allgemeingültige Bedeutung. Die persönliche Interpretation
+        kann von eigenen Erlebnissen und Gefühlen abhängen.
+      </p>
+    </article>
+
+  </div>
+</section>
+
+<section id="besonderes">
+  <div class="section-heading">
+    <h2>Besondere Traumerlebnisse</h2>
+    <p>Von Albträumen bis zu Klarträumen: Die Welt des Träumens ist vielfältig.</p>
+  </div>
+
+  <div class="grid">
+
+    <article class="card">
+      <div class="number">13 / ALBTRÄUME</div>
+      <h3>Warum haben wir Albträume?</h3>
+      <p>
+        <span class="term">Albträume</span> sind unangenehme,
+        häufig lebhafte Träume, die Gefühle wie Angst oder
+        Hilflosigkeit auslösen können. Stress und belastende
+        Erlebnisse können mit ihnen zusammenhängen.
+      </p>
+      <p>
+        Gelegentliche Albträume sind normal. Wenn sie häufig
+        auftreten und den Alltag beeinträchtigen, kann es
+        hilfreich sein, mit einer vertrauten Person oder einer
+        medizinischen Fachkraft darüber zu sprechen.
+      </p>
+    </article>
+
+    <article class="card">
+      <div class="number">14 / KLARTRÄUME</div>
+      <h3>Wenn wir wissen, dass wir träumen</h3>
+      <p>
+        Bei einem <span class="term">Klartraum</span> erkennt
+        man während des Traums, dass man gerade träumt.
+        Manche Menschen können den Traum dann teilweise beeinflussen.
+      </p>
+      <p>
+        Klarträume werden wissenschaftlich untersucht, weil sie
+        Hinweise auf das Bewusstsein während des Schlafs geben.
+        Die Kontrolle über den Traum gelingt allerdings nicht immer.
+      </p>
+    </article>
+
+    <article class="card">
+      <div class="number">15 / TRAUMERINNERUNG</div>
+      <h3>Warum vergessen wir Träume?</h3>
+      <p>
+        Viele Träume verblassen kurz nach dem Aufwachen.
+        Das kann daran liegen, dass Trauminhalte nicht dauerhaft
+        gespeichert werden oder unsere Aufmerksamkeit schnell
+        zu anderen Dingen wechselt.
+      </p>
+      <p>
+        <span class="term">Traumerinnerung</span> bezeichnet
+        die Fähigkeit, sich nach dem Aufwachen an einen Traum
+        zu erinnern. Sich an keinen Traum zu erinnern, bedeutet
+        nicht automatisch, dass man nicht geträumt hat.
+      </p>
+    </article>
+
+    <article class="card">
+      <div class="number">16 / FORSCHUNG</div>
+      <h3>Was wissen wir noch nicht?</h3>
+      <p>
+        Forschende untersuchen den Schlaf mit Messungen der
+        Gehirnaktivität und Augenbewegungen. Zusätzlich befragen
+        sie Menschen nach dem Aufwachen zu ihren Traumerlebnissen.
+      </p>
+      <p>
+        Die große offene Frage lautet, ob Träume eine bestimmte
+        biologische Funktion erfüllen oder teilweise eine
+        Begleiterscheinung der Aktivität des schlafenden Gehirns
+        sind. Dazu wird weiterhin geforscht.
+      </p>
+    </article>
+
+  </div>
+
+  <div class="note">
+    <strong>Merke:</strong> Dass Schlaf für Lernen, Gedächtnis
+    und Gesundheit wichtig ist, ist gut belegt. Ob das bewusste
+    Traumerleben selbst diese Aufgaben erfüllt, ist dagegen
+    noch nicht abschließend geklärt.
+  </div>
+</section>
+
+<section id="quellen">
+  <div class="section-heading">
+    <h2>Quellen und weiterführende Informationen</h2>
+    <p>Wissenschaftliche und medizinische Informationsquellen zum Thema Träumen.</p>
+  </div>
+
+  <div class="sources">
+    <ol>
+      <li>
+        <a href="https://www.nichd.nih.gov/health/topics/sleep/conditioninfo/Pages/what-happens.aspx"
+           target="_blank" rel="noopener noreferrer">
+          National Institute of Child Health and Human Development:
+          What Happens During Sleep?
+        </a>
+        <p>Informationen über Schlafphasen, REM-Schlaf und Schlafprozesse.</p>
+      </li>
+
+      <li>
+        <a href="https://www.nhlbi.nih.gov/health/sleep/stages-of-sleep"
+           target="_blank" rel="noopener noreferrer">
+          National Heart, Lung, and Blood Institute:
+          Sleep Stages
+        </a>
+        <p>Erklärungen zu den verschiedenen Schlafstadien und Schlafzyklen.</p>
+      </li>
+
+      <li>
+        <a href="https://www.sleepfoundation.org/dreams"
+           target="_blank" rel="noopener noreferrer">
+          Sleep Foundation: Dreams
+        </a>
+        <p>Überblick über Trauminhalte, mögliche Funktionen und Traumerinnerung.</p>
+      </li>
+
+      <li>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/36572252/"
+           target="_blank" rel="noopener noreferrer">
+          PubMed: What are the neural mechanisms and physiological functions of dreams?
+        </a>
+        <p>Wissenschaftliche Übersicht über mögliche Mechanismen und Funktionen von Träumen.</p>
+      </li>
+
+      <li>
+        <a href="https://www.ncbi.nlm.nih.gov/books/NBK11121/"
+           target="_blank" rel="noopener noreferrer">
+          NCBI Bookshelf: The Possible Functions of REM Sleep and Dreaming
+        </a>
+        <p>Hintergrundinformationen zu wissenschaftlichen Hypothesen über Träume.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<a class="top" href="#start">↑ Zurück nach oben</a>
+
+</main>
+
+<footer>
+  <p><strong>DreamLab ✦</strong></p>
+  <p>Eine Reise in die Wissenschaft des Träumens.</p>
+  <p>
+    Die beschriebenen Theorien werden vorsichtig eingeordnet,
+    da die Funktion von Träumen noch nicht vollständig geklärt ist.
+  </p>
+  <p>© 2026 DreamLab · Bildungsprojekt</p>
+</footer>
+
+</body>
+</html>
